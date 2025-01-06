@@ -1,6 +1,7 @@
 import {MdLocationOn} from "react-icons/md";
-import {HiCalendar, HiMinus, HiPlus, HiSearch} from "react-icons/hi";
+import {HiCalendar, HiSearch} from "react-icons/hi";
 import { useState } from "react";
+import GuestOptionList from "./GuestOptionList";
 
 
 function Header() {
@@ -40,7 +41,7 @@ function Header() {
         <div className="headerSearchItem">
             <div id="optionDropDwon" onClick={() => setOpenOptions(!openOptions)}>
                 {options.adult} dult &bull; {options.children} children &bull; {options.room} room
-                {openOptions && <GuestOptionList options={options}  handleOption={handleOption}/> }
+                {openOptions && <GuestOptionList options={options}  handleOption={handleOption} /> }
             </div>
         <span className="seperator"></span>
         </div>
@@ -55,32 +56,3 @@ function Header() {
 }
 
 export default Header
-
-
-function GuestOptionList({options, handleOption}) {
-    return (
-    <div className="guestOptions">
-        <OptionItem options={options} handleOption={handleOption} type="adult" minLimit={1} />
-        <OptionItem options={options} handleOption={handleOption} type="children" minLimit={0}/>
-        <OptionItem options={options} handleOption={handleOption} type="room" minLimit={1}/>
-    </div>
-    )
-}
-
-
-function OptionItem({options, handleOption, type, minLimit}) {
-    return(
-    <div className="guestOptionItem">
-        <span className="optionText">{type}</span>
-        <div className="optionCounter">
-            <button onClick={() => handleOption(type, "dec")} className="optionCounterBtn" disabled={options[type] <= minLimit}>
-                <HiMinus className="icon"/>
-            </button>
-            <span className="optionCounterNumber">{options[type]}</span>
-            <button onClick={() => handleOption(type, "inc")} className="optionCounterBtn">
-                <HiPlus className="icon"/>
-            </button>
-        </div>
-    </div>
-    )
-}
