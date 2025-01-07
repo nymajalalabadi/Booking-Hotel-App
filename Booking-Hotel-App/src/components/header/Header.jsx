@@ -2,7 +2,9 @@ import {MdLocationOn} from "react-icons/md";
 import {HiCalendar, HiSearch} from "react-icons/hi";
 import { useState } from "react";
 import GuestOptionList from "./GuestOptionList";
-
+import { DateRange } from 'react-date-range';
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 
 function Header() {
 
@@ -16,6 +18,17 @@ function Header() {
         room: 1,
     });
 
+    const [date, setDate] = useState([
+        {
+            startDate: new Date(),
+            endDate: new Date(),
+            key: 'selection'
+        }
+    ]);
+
+    const [openDate, setOpenDate] = useState(false);
+
+    
     const handleOption = (name, operation) => {
         setOptions((prev) => {
             return {
@@ -35,13 +48,18 @@ function Header() {
         </div>
         <div className="headerSearchItem">
             <HiCalendar className="headerIcon dateIcon" />
-            <div className="dateDropDown"> 1/6/2025 </div>
+            <div onClick={() => setOpenDate(!openDate)} className="dateDropDown">
+                 1/6/2025 
+                 {openDate && <DateRange onChange={item => setDate([item.selection])} ranges={date} minDate={new Date()} moveRangeOnFirstSelection={true} className="date"/>}
+            </div>
             <span className="seperator"></span>
         </div>
         <div className="headerSearchItem">
-            <div id="optionDropDwon" onClick={() => setOpenOptions(!openOptions)}>
+            <div id="optionDropDown" onClick={() => setOpenOptions(!openOptions)}>
+
                 {options.adult} dult &bull; {options.children} children &bull; {options.room} room
-                {openOptions && <GuestOptionList options={options}  handleOption={handleOption} /> }
+
+                {openOptions && <GuestOptionList options={options}  handleOption={handleOption}  setOpenOptions={setOpenOptions} /> }
             </div>
         <span className="seperator"></span>
         </div>
