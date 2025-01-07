@@ -5,6 +5,7 @@ import GuestOptionList from "./GuestOptionList";
 import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
+import { format } from "date-fns";
 
 function Header() {
 
@@ -49,9 +50,12 @@ function Header() {
         <div className="headerSearchItem">
             <HiCalendar className="headerIcon dateIcon" />
             <div onClick={() => setOpenDate(!openDate)} className="dateDropDown">
-                 1/6/2025 
-                 {openDate && <DateRange onChange={item => setDate([item.selection])} ranges={date} minDate={new Date()} moveRangeOnFirstSelection={true} className="date"/>}
+                {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
+                date[0].endDate,
+                "MM/dd/yyyy"
+                )}`}
             </div>
+            {openDate && <DateRange onChange={item => setDate([item.selection])} ranges={date} minDate={new Date()} moveRangeOnFirstSelection={true} className="date"/>}
             <span className="seperator"></span>
         </div>
         <div className="headerSearchItem">
