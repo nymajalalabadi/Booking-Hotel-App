@@ -1,4 +1,5 @@
 import useFetch from '../../hooks/useFetch'
+import Loader from '../Loader/Loader';
 
 function LocationList() 
 {
@@ -6,7 +7,7 @@ function LocationList()
 
    if(isLoading)
    {
-    return <div>Loading...</div>
+    return <Loader />
    }
 
   return (
