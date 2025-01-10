@@ -20,11 +20,13 @@ function Map() {
   return (
     <div className="mapContainer">
       <MapContainer className="map" center={mapCenter} zoom={6} scrollWheelZoom={true}>
-      <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
-      />
+
+      <button className="getLocation">Use Your Location</button>
+
+      <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png" />
+
       <ChangeCenter position={mapCenter} />
+
         {hotels.map((item) => {
           return (
             <Marker key={item.id} position={[item.latitude, item.longitude]}>
