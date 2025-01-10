@@ -10,14 +10,14 @@ function BookMarkListProvider({children})
   const [currentBookmark, setCurrrentBookmark] = useState(null);
   const [loadingCurrentBookmark, setLoadingCurrentBookmark] = useState(false);
 
-  const { data : bookmarks, isLoading } = useFetch("http://localhost:5000/bookmark");
+  const { data : bookmarks, isLoading } = useFetch("http://localhost:5000/bookmarks");
 
   async function getBookmark(id)
   {
     setLoadingCurrentBookmark(true);
     try 
     {
-      const {data} = await axios.get(`http://localhost:5000/bookmark/${id}`);
+      const {data} = await axios.get(`http://localhost:5000/bookmarks/${id}`);
       setCurrrentBookmark(data);
       setLoadingCurrentBookmark(false);
     } 
