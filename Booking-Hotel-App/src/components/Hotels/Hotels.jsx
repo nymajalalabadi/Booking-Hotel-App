@@ -4,7 +4,7 @@ import { useHotels } from "../Context/HotelsProvider";
 
 function Hotels() 
 {
-    const { hotels, isLoading } = useHotels();
+    const { hotels, isLoading, currentHotel } = useHotels();
 
     if(isLoading)
     {
@@ -19,7 +19,7 @@ function Hotels()
       {hotels.map((item) => {
         return (
         <Link to={`/hotels/${item.id}?lat=${item.latitude}&lng=${item.longitude}`} key={item.id}>
-            <div className="searchItem">
+             <div className={`searchItem ${ item.id === currentHotel?.id ? "current-hotel" : ""}`}>
                 <img src={item.thumbnail_url} alt={item.name} />
                 <div className="searchItemDesc">
                     <p className="location">{item.smart_location}</p>
