@@ -47,7 +47,7 @@ export default HotelsProvider
 
 export function useHotels()
 {
-    const context = useContext(HotelsContext);
+  const context = useContext(HotelsContext);
 
-    return context;
+  return context;
 }
