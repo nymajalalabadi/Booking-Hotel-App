@@ -12,7 +12,7 @@ function BookMarkListProvider({children})
 
   const { data : bookmarks, isLoading } = useFetch("http://localhost:5000/bookmark");
 
-  async function getHotel(id)
+  async function getBookmark(id)
   {
     setLoadingCurrentBookmark(true);
     try 
@@ -29,7 +29,7 @@ function BookMarkListProvider({children})
   }
 
   return (
-    <BookMarksContext.Provider value={{bookmarks, isLoading, getHotel, currentBookmark, loadingCurrentBookmark}}>
+    <BookMarksContext.Provider value={{bookmarks, isLoading, getBookmark, currentBookmark, loadingCurrentBookmark}}>
       {children}
     </BookMarksContext.Provider>
   )

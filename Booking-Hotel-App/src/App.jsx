@@ -8,10 +8,12 @@ import Hotels from './components/Hotels/Hotels'
 import HotelsProvider from './components/Context/HotelsProvider'
 import SingleHotel from './components/SingleHotel/SingleHotel'
 import BookmarkLayout from './components/BookmarkLayout/BookmarkLayout'
+import BookMarkListProvider from './components/Context/BookMarkListProvider'
 
 function App() {
   return (
-    <HotelsProvider>
+    <BookMarkListProvider>
+      <HotelsProvider>
         <Toaster />
         <Header />
         <Routes>
@@ -26,6 +28,7 @@ function App() {
           </Route>
         </Routes>
     </HotelsProvider>
+    </BookMarkListProvider>
   )
 }
 
