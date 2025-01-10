@@ -13,7 +13,9 @@ function Hotels()
 
   return (
     <div className="searchList">
+
       <h2>Search Result({hotels.length})</h2>
+
       {hotels.map((item) => {
         return (
         <Link to={`/hotels/${item.id}?lat=${item.latitude}&lng=${item.longitude}`} key={item.id}>
@@ -29,6 +31,7 @@ function Hotels()
         </Link>
         )
       })}
+      
     </div>
   )
 }
