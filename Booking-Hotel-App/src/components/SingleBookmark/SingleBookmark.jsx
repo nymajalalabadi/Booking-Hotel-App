@@ -16,10 +16,6 @@ function SingleBookmark() {
     getBookmark(id);
  }, [id]);
 
-  const handleBack = () => {
-    navigate(-1);
-  }
-
   if (loadingCurrentBookmark || !currentBookmark) 
   {
     return <Loader />;
