@@ -5,7 +5,7 @@ import { useBookmarks } from "../Context/BookMarkListProvider"
 
 function BookmarkLayout() 
 {
-  const {bookmarks} = useBookmarks();
+  const { bookmarks } = useBookmarks();
   
   return (
     <div className="appLayout">

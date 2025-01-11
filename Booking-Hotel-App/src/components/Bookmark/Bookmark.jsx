@@ -25,7 +25,7 @@ function Bookmark()
         {bookmarks.length === 0 && <p>There is no bookmarked location</p>}
         {bookmarks.map((item) => {
           return (
-            <Link key={item.id} to={`/bookmarks/${item.id}?lat=${item.latitude}&lng=${item.longitude}`}>
+            <Link key={item.id} to={`/bookmark/${item.id}?lat=${item.latitude}&lng=${item.longitude}`}>
               <div className={`bookmarkItem  ${item.id === currentBookmark?.id ? "current-bookmark" : "" }`}>
                 <div>
                   <ReactCountryFlag svg countryCode={item.countryCode} />

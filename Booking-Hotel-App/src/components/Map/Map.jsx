@@ -23,7 +23,7 @@ function Map({markerLocations}) {
     {
       setMapCenter([geoLocationPosition.lat, geoLocationPosition.lng]);
     }
-  },[geoLocationPosition])
+  }, [geoLocationPosition]);
 
   return (
     <div className="mapContainer">
