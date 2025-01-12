@@ -1368,6 +1368,60 @@
       "longitude": "67.78003711374224",
       "host_location": "Baba Kot Pakistan",
       "id": 8
+    },
+    {
+      "cityName": "Basse-Rentgen",
+      "country": "France",
+      "countryCode": "FR",
+      "latitude": "49.485077910741936",
+      "longitude": "6.215505001729704",
+      "host_location": "Basse-Rentgen France",
+      "id": 9
+    },
+    {
+      "cityName": "Basse-Rentgen",
+      "country": "France",
+      "countryCode": "FR",
+      "latitude": "49.485077910741936",
+      "longitude": "6.215505001729704",
+      "host_location": "Basse-Rentgen France",
+      "id": 10
+    },
+    {
+      "cityName": "Wetzlar",
+      "country": "Germany",
+      "countryCode": "DE",
+      "latitude": "50.55794240049447",
+      "longitude": "8.543584957333943",
+      "host_location": "Wetzlar Germany",
+      "id": 11
+    },
+    {
+      "cityName": "Hageville",
+      "country": "France",
+      "countryCode": "FR",
+      "latitude": "49.04056869631686",
+      "longitude": "5.8812125230627466",
+      "host_location": "Hageville France",
+      "id": 12
+    },
+    {
+      "cityName": "Thompson-Nicola J",
+      "country": "Canada",
+      "countryCode": "CA",
+      "latitude": "50.739062484205846",
+      "longitude": "-120.79291830027675",
+      "host_location": "Thompson-Nicola J Canada",
+      "id": 13
+    },
+    {
+      "cityName": "Idles",
+      "country": "Algeria",
+      "countryCode": "DZ",
+      "latitude": "24.07028988562398",
+      "longitude": "5.510758403482461",
+      "host_location": "Idles Algeria",
+      "id": 14
     }
   ]
 }

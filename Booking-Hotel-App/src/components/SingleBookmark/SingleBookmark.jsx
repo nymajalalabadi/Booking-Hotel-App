@@ -8,7 +8,7 @@ function SingleBookmark() {
 
   const { id } = useParams();
 
-  const {getBookmark, currentBookmark, loadingCurrentBookmark} = useBookmarks();
+  const {getBookmark, currentBookmark, isLoading} = useBookmarks();
 
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ function SingleBookmark() {
     getBookmark(id);
  }, [id]);
 
-  if (loadingCurrentBookmark || !currentBookmark) 
+  if (isLoading || !currentBookmark) 
   {
     return <Loader />;
   }
