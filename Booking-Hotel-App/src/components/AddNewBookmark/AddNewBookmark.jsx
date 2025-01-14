@@ -8,7 +8,6 @@ import ReactCountryFlag from "react-country-flag";
 import { useBookmarks } from '../Context/BookMarkListProvider';
 
 const BASE_GEOCODING_URL = "https://api-bdc.net/data/reverse-geocode-client";
-// const BASE_GEOCODING_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 function AddNewBookmark() {
 
