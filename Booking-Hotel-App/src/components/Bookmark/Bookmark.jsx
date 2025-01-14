@@ -7,15 +7,17 @@ import { HiTrash } from "react-icons/hi";
 
 function Bookmark() 
 {
-  const {bookmarks, isLoading, currentBookmark} = useBookmarks()
+  const {bookmarks, isLoading, currentBookmark, deleteBookmark } = useBookmarks()
 
   if(isLoading)
   {
     return (<Loader/>)
   }
 
-  const handleDelete = () => {
-    
+  const handleDelete = async (e, id) => 
+  {
+    e.preventDefault();
+    await deleteBookmark(id);
   }
  
   return (

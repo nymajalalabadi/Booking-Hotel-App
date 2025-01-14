@@ -1376,15 +1376,6 @@
       "latitude": "49.485077910741936",
       "longitude": "6.215505001729704",
       "host_location": "Basse-Rentgen France",
-      "id": 9
-    },
-    {
-      "cityName": "Basse-Rentgen",
-      "country": "France",
-      "countryCode": "FR",
-      "latitude": "49.485077910741936",
-      "longitude": "6.215505001729704",
-      "host_location": "Basse-Rentgen France",
       "id": 10
     },
     {
@@ -1413,15 +1404,6 @@
       "longitude": "-120.79291830027675",
       "host_location": "Thompson-Nicola J Canada",
       "id": 13
-    },
-    {
-      "cityName": "Idles",
-      "country": "Algeria",
-      "countryCode": "DZ",
-      "latitude": "24.07028988562398",
-      "longitude": "5.510758403482461",
-      "host_location": "Idles Algeria",
-      "id": 14
     }
   ]
 }
