@@ -1,34 +1,69 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
 const BookMarksContext = createContext();
 
+
+const initialState = {
+  bookmarks: [],
+  isLoading: false,
+  currentBookmark: null,
+  error: null
+};
+
+
+function bookmarkReducer(state, action)
+{
+  switch(action.type)
+  {
+    case "loading":
+      return {...state, isLoading: true};
+
+    case "bookmarks/loaded":
+      return {...state, isLoading: false, bookmarks: action.payload};
+
+    case "bookmark/loaded":
+      return {...state, isLoading: false, currentBookmark: action.payload};
+
+    case "bookmark/created":
+      return {...state, isLoading: false, bookmarks: [...state.bookmarks, action.payload]};
+
+    case "bookmark/deleted":
+      return {...state, isLoading: false, bookmarks: state.bookmarks.filter((bookmark) => bookmark.id !== action.payload)};
+
+    case "rejected":
+      return {...state, isLoading: false, error: action.payload};
+
+    default:
+      throw new Error("Unknown action type");
+  }
+}
+
 function BookMarkListProvider({children}) 
 {
-  const [currentBookmark, setCurrrentBookmark] = useState(null);
+  // const [currentBookmark, setCurrrentBookmark] = useState(null);
 
-  const [bookmarks, setBookmarks] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [bookmarks, setBookmarks] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+
+  const [{bookmarks, isLoading, currentBookmark}, dispatch] = useReducer(bookmarkReducer, initialState)
 
 
   useEffect(() => {
   async function fetchBookmarkList()
   {
-    setIsLoading(true);
+    dispatch({type: "loading"});
 
     try 
     {
       const {data} = await axios.get(`http://localhost:5000/bookmarks`);
-      setBookmarks(data);
+      dispatch({type: "bookmarks/loaded", payload: data});
     } 
     catch (error) 
     {
       toast.error(error.message);
-    }
-    finally
-    {
-      setIsLoading(false);
+      dispatch({type: "rejected", payload: "an Errror occurred in loading bookmarks"});
     }
   }
 
@@ -39,60 +74,51 @@ function BookMarkListProvider({children})
 
   async function getBookmark(id)
   {
-    setIsLoading(true);
-    setCurrrentBookmark(null);
+    dispatch({type: "loading"});
+    dispatch({type: "bookmark/loaded", payload: null});
 
     try 
     {
       const {data} = await axios.get(`http://localhost:5000/bookmarks/${id}`);
-      setCurrrentBookmark(data);
+      dispatch({type: "bookmark/loaded", payload: data});
     } 
     catch (error) 
     {
       toast.error(error.message);
-    }
-    finally
-    {
-      setIsLoading(false);
+      dispatch({type: "rejected", payload: "an Error occurred in fetching single bookmark"});
     }
   }
 
 
   async function CreateBookmark(newBookmark) 
   {
-    setIsLoading(true);
+    dispatch({type: "loading"});
     try 
     {
       const {data} = await axios.post(`http://localhost:5000/bookmarks/`, newBookmark);
-      setCurrrentBookmark(data);
-      setBookmarks(prev => [...prev, data]);
+      dispatch({type: "bookmark/loaded", payload: data});
+      dispatch({type: "bookmark/created", payload: data});
     } 
     catch (error) 
     {
       toast.error(error.message);
-    }
-    finally
-    {
-      setIsLoading(false);
+      dispatch({type: "rejected", payload: error});
     }
   }
 
   async function deleteBookmark(id) 
   {
-    setIsLoading(true);
+    dispatch({type: "loading"});
 
     try {
-      const { data } = await axios.delete(`http://localhost:5000/bookmarks/${id}`);
+      await axios.delete(`http://localhost:5000/bookmarks/${id}`);
 
-      setBookmarks(prev => prev.filter(bookmark => bookmark.id !== data.id));
+      dispatch({type: "bookmark/deleted", payload: id});
     }
     catch (error)
     {
       toast.error(error.message);
-    }
-    finally
-    {
-      setIsLoading(false);
+      dispatch({type: "rejected", payload: error});
     }
   }
 

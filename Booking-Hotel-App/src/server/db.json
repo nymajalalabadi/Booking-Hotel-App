@@ -1388,15 +1388,6 @@
       "id": 11
     },
     {
-      "cityName": "Hageville",
-      "country": "France",
-      "countryCode": "FR",
-      "latitude": "49.04056869631686",
-      "longitude": "5.8812125230627466",
-      "host_location": "Hageville France",
-      "id": 12
-    },
-    {
       "cityName": "Thompson-Nicola J",
       "country": "Canada",
       "countryCode": "CA",
@@ -1404,6 +1395,24 @@
       "longitude": "-120.79291830027675",
       "host_location": "Thompson-Nicola J Canada",
       "id": 13
+    },
+    {
+      "cityName": "Saskatoon",
+      "country": "Canada",
+      "countryCode": "CA",
+      "latitude": "52.11725812770208",
+      "longitude": "-106.62780761718751",
+      "host_location": "Saskatoon Canada",
+      "id": 14
+    },
+    {
+      "cityName": "Mahabad",
+      "country": "Iran (Islamic Republic of)",
+      "countryCode": "IR",
+      "latitude": "36.76350417637859",
+      "longitude": "45.74707031250001",
+      "host_location": "Mahabad Iran (Islamic Republic of)",
+      "id": 15
     }
   ]
 }

@@ -11,7 +11,7 @@ function Bookmark()
 
   if(isLoading)
   {
-    return (<Loader/>)
+    return (<Loader />)
   }
 
   const handleDelete = async (e, id) => 
