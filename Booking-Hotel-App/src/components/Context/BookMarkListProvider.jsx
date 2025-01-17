@@ -42,10 +42,6 @@ function bookmarkReducer(state, action)
 
 function BookMarkListProvider({children}) 
 {
-  // const [currentBookmark, setCurrrentBookmark] = useState(null);
-
-  // const [bookmarks, setBookmarks] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
 
   const [{bookmarks, isLoading, currentBookmark}, dispatch] = useReducer(bookmarkReducer, initialState)
 
@@ -78,7 +74,7 @@ function BookMarkListProvider({children})
     {
       return;
     }
-    
+
     dispatch({type: "loading"});
 
     try 
