@@ -4,17 +4,17 @@ import { useAuth } from "../Context/AuthProvider";
 
 function User() 
 {
-    const navigate = useNavigate();
-
     const { user, isAuthenticated, logout } = useAuth();
+
+    const navigate = useNavigate();
 
     const handleLogout = () => {
       logout();
-      navigate("/");
+      navigate("/", {replace : true});
     };
   
     return (
-      <div>
+    <div>
         {isAuthenticated ? (
           <div>
             <strong>{user.name}</strong>
@@ -25,7 +25,7 @@ function User()
         ) : (
           <NavLink to="/login">login</NavLink>
         )}
-      </div>
+    </div>
     );
 }
 
