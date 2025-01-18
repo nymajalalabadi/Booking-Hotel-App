@@ -6,7 +6,8 @@ import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { format } from "date-fns";
-import { createSearchParams, NavLink, useNavigate, useSearchParams } from "react-router-dom";
+import { createSearchParams, useNavigate, useSearchParams } from "react-router-dom";
+import User from "./User";
 
 function Header() {
 
@@ -93,11 +94,11 @@ function Header() {
             </button>
         </div>
       </div>
-      <div>
-        <NavLink to="/login">login</NavLink>
-      </div>
+      <User />
     </div>
   )
 }
 
 export default Header
+
+  

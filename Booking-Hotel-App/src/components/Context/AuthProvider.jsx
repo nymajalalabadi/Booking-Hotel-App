@@ -20,7 +20,7 @@ function authReducer(state, action)
 }
 
 const FAKE_USER = {
-    name: "Saheb",
+    name: "nima",
     email: "user@gmail.com",
     password: "1234",
 };
@@ -29,6 +29,7 @@ export default function AuthProvier({children})
 {
     const [{ user, isAuthenticated }, dispatch] = useReducer(authReducer, initialState);
 
+
     function login(email, password)
     {
         if(email === FAKE_USER.email && password === FAKE_USER.password)
@@ -36,6 +37,7 @@ export default function AuthProvier({children})
             dispatch({type: "login", payload: FAKE_USER});
         }
     }
+    
 
     function logout()
     {
